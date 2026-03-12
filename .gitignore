@@ -1,0 +1,106 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Config & Secrets
+config.json
+*.local.json
+.env
+*.key
+*.pem
+api_keys.txt
+secrets/
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Data & Cache
+data/
+cache/
+*.db
+*.sqlite
+*.pkl
+*.pickle
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Distribution
+*.tar.gz
+*.zip
+*.dmg
+*.exe
+*.deb
+*.rpm
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# User Data
+user_data/
+my_*.json
+watchlist.txt
+reports/
+
+# Temporary
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp

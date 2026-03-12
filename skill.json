@@ -1,0 +1,114 @@
+{
+  "name": "Financial Intelligence Agent",
+  "version": "1.0.0",
+  "description": "综合金融智能分析助手 - 整合新闻聚合、股票研究、技术分析、龙虎榜监控",
+  "author": "OpenClaw Skills",
+  "license": "MIT",
+  
+  "capabilities": [
+    "实时财经新闻聚合 (Telegram, RSS, Web)",
+    "股票深度研究 (基本面 + 技术面)",
+    "10项技术指标分析 (MA, MACD, KDJ, BOLL, RSI, ATR, OBV等)",
+    "资金流向监控 (主力/散户/机构)",
+    "龙虎榜追踪 (游资/机构席位)",
+    "智能评分与操作建议",
+    "多市场支持 (A股/美股/港股/加密货币)"
+  ],
+  
+  "structure": {
+    "modules": {
+      "news": {
+        "description": "财经新闻聚合模块",
+        "scripts": [
+          "modules/news/fetch_financial_express.py",
+          "modules/news/fetch_coindesk.py",
+          "modules/news/news_aggregator.py"
+        ],
+        "config": "modules/news/config.json"
+      },
+      "research": {
+        "description": "股票深度研究模块",
+        "scripts": [
+          "modules/research/stock_analyzer.py",
+          "modules/research/technical_analysis.py",
+          "modules/research/dragon_tiger.py"
+        ],
+        "config": "modules/research/config.json"
+      },
+      "data": {
+        "description": "数据源接口模块",
+        "scripts": [
+          "modules/data/akshare_adapter.py",
+          "modules/data/tushare_adapter.py",
+          "modules/data/yfinance_adapter.py"
+        ]
+      }
+    }
+  },
+  
+  "dependencies": {
+    "required": {
+      "python": ">=3.8",
+      "akshare": ">=1.13.0",
+      "pandas": ">=2.0.0",
+      "requests": ">=2.31.0",
+      "beautifulsoup4": ">=4.12.0"
+    },
+    "optional": {
+      "tushare": ">=1.4.0",
+      "yfinance": ">=0.2.0",
+      "matplotlib": ">=3.8.0",
+      "ta-lib": ">=0.4.0"
+    }
+  },
+  
+  "configuration": {
+    "llm": {
+      "provider": "openrouter",
+      "model": "anthropic/claude-sonnet-4-20250514",
+      "temperature": 0.7,
+      "max_tokens": 4096,
+      "note": "可选: openrouter, siliconflow, google, openai, dashscope"
+    },
+    "data_sources": {
+      "primary": "akshare",
+      "fallback": ["tushare", "yfinance"],
+      "news_sources": ["财经慢报", "CoinDesk"]
+    },
+    "delivery": {
+      "targets": ["feishu", "telegram", "discord"],
+      "schedule": {
+        "morning_digest": "0 9 * * *",
+        "evening_digest": "0 18 * * *"
+      }
+    }
+  },
+  
+  "installation": {
+    "steps": [
+      "1. 运行 install.sh 安装依赖",
+      "2. 复制 config.example.json 为 config.json",
+      "3. 配置 LLM API Key (可选)",
+      "4. 配置数据源 (AKShare 免费,无需配置)",
+      "5. 配置推送目标 (飞书/Telegram)",
+      "6. 运行 python3 main.py --test 测试"
+    ],
+    "quick_start": "bash install.sh && python3 main.py --config"
+  },
+  
+  "usage": {
+    "cli": {
+      "news": "python3 main.py news --source 财经慢报 --limit 20",
+      "stock": "python3 main.py stock --symbol 688110 --full",
+      "monitor": "python3 main.py monitor --watchlist stocks.txt"
+    },
+    "feishu": {
+      "@mention": "@小丽 分析东芯股份",
+      "commands": [
+        "抓取财经慢报",
+        "分析 [股票代码]",
+        "龙虎榜 [股票代码]"
+      ]
+    }
+  }
+}

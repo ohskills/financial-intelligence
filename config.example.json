@@ -1,0 +1,177 @@
+{
+  "version": "1.0.0",
+  
+  "llm": {
+    "provider": "openrouter",
+    "api_key": "",
+    "model": "anthropic/claude-sonnet-4-20250514",
+    "temperature": 0.7,
+    "max_tokens": 4096,
+    "enable_summary": true,
+    "enable_translation": false,
+    "note": "可选提供商: openrouter, siliconflow, google, openai, dashscope"
+  },
+  
+  "data_sources": {
+    "primary": "akshare",
+    
+    "akshare": {
+      "enabled": true,
+      "cache_ttl": 300,
+      "note": "免费,无需配置"
+    },
+    
+    "tushare": {
+      "enabled": false,
+      "token": "",
+      "points": 0,
+      "note": "注册 https://tushare.pro 获取 token"
+    },
+    
+    "yfinance": {
+      "enabled": false,
+      "note": "美股数据,无需配置"
+    }
+  },
+  
+  "news_sources": {
+    "财经慢报": {
+      "enabled": true,
+      "priority": "high",
+      "url": "https://t.me/s/Financial_Express",
+      "fetch_interval": 300,
+      "note": "Telegram 实时快讯"
+    },
+    
+    "coindesk": {
+      "enabled": true,
+      "priority": "medium",
+      "url": "https://www.coindesk.com/arc/outboundfeeds/rss/",
+      "note": "加密货币新闻"
+    },
+    
+    "bloomberg": {
+      "enabled": false,
+      "api_key": "",
+      "note": "需要付费订阅"
+    },
+    
+    "华尔街见闻": {
+      "enabled": false,
+      "vip_account": "",
+      "note": "需要 VIP 会员"
+    }
+  },
+  
+  "analysis": {
+    "technical_indicators": [
+      "MA",
+      "MACD",
+      "KDJ",
+      "BOLL",
+      "RSI",
+      "ATR",
+      "OBV"
+    ],
+    "scoring": {
+      "enabled": true,
+      "min_score": 0,
+      "max_score": 10
+    },
+    "dragon_tiger": {
+      "enabled": true,
+      "lookback_days": 30
+    }
+  },
+  
+  "delivery": {
+    "feishu": {
+      "enabled": true,
+      "targets": [
+        "oc_2a435bb947763c62f5168fb27ee509dd"
+      ],
+      "note": "飞书群 ID,可以添加多个"
+    },
+    
+    "telegram": {
+      "enabled": false,
+      "bot_token": "",
+      "chat_id": "",
+      "note": "Telegram Bot 配置"
+    },
+    
+    "discord": {
+      "enabled": false,
+      "webhook_url": "",
+      "note": "Discord Webhook"
+    },
+    
+    "schedule": {
+      "morning_digest": {
+        "cron": "0 9 * * *",
+        "timezone": "Asia/Shanghai",
+        "sources": [
+          "财经慢报",
+          "coindesk"
+        ],
+        "limit": 20,
+        "enabled": false,
+        "note": "每天早上9点推送,需要配置 openclaw cron"
+      },
+      
+      "evening_digest": {
+        "cron": "0 18 * * *",
+        "timezone": "Asia/Shanghai",
+        "sources": [
+          "财经慢报"
+        ],
+        "limit": 15,
+        "enabled": false,
+        "note": "每天晚上6点推送"
+      }
+    }
+  },
+  
+  "filters": {
+    "keywords": {
+      "include": [
+        "AI",
+        "芯片",
+        "新能源",
+        "比特币",
+        "以太坊"
+      ],
+      "exclude": [
+        "广告",
+        "推广",
+        "软文"
+      ]
+    },
+    "min_importance": 6,
+    "max_age_hours": 24
+  },
+  
+  "performance": {
+    "cache_enabled": true,
+    "cache_ttl": 3600,
+    "max_concurrent": 5,
+    "timeout": 30,
+    "retry": {
+      "max_attempts": 3,
+      "backoff_factor": 2
+    }
+  },
+  
+  "proxy": {
+    "http": "",
+    "https": "",
+    "note": "如需代理,填写 http://proxy:port"
+  },
+  
+  "logging": {
+    "level": "INFO",
+    "file": "logs/financial-intelligence.log",
+    "max_size_mb": 100,
+    "backup_count": 5
+  }
+}

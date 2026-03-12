@@ -1,0 +1,372 @@
+{
+  "version": "2.0",
+  "description": "Financial News Sources Configuration - 用户可自定义启用/禁用",
+  
+  "sources": [
+    {
+      "id": "financial_express",
+      "name": "财经慢报",
+      "name_en": "Financial Express",
+      "type": "telegram",
+      "url": "https://t.me/s/Financial_Express",
+      "priority": "high",
+      "categories": ["综合", "实时快讯"],
+      "market": "global",
+      "language": "zh-CN",
+      "update_frequency": "realtime",
+      "enabled": true,
+      "free": true,
+      "description": "Telegram 实时财经快讯,覆盖全球市场"
+    },
+    
+    {
+      "id": "jinshi",
+      "name": "金十数据",
+      "name_en": "Jin10",
+      "type": "web",
+      "url": "https://www.jin10.com/",
+      "priority": "high",
+      "categories": ["外汇", "商品", "实时快讯"],
+      "market": "global",
+      "language": "zh-CN",
+      "update_frequency": "realtime",
+      "enabled": false,
+      "free": true,
+      "requires_scraping": true,
+      "description": "中国最快的实时财经数据服务"
+    },
+    
+    {
+      "id": "wallstreetcn",
+      "name": "华尔街见闻",
+      "name_en": "Wallstreetcn",
+      "type": "web",
+      "url": "https://wallstreetcn.com/",
+      "api_url": "https://api-one.wallstreetcn.com/apiv1/content/articles",
+      "priority": "high",
+      "categories": ["美股", "宏观", "深度"],
+      "market": "us",
+      "language": "zh-CN",
+      "update_frequency": "realtime",
+      "enabled": false,
+      "free": false,
+      "requires_vip": true,
+      "description": "中文美股资讯第一站"
+    },
+    
+    {
+      "id": "eastmoney",
+      "name": "东方财富",
+      "name_en": "East Money",
+      "type": "rss",
+      "url": "http://finance.eastmoney.com/news/",
+      "rss_url": "http://feed.eastmoney.com/rss/f_00001.xml",
+      "priority": "high",
+      "categories": ["A股", "基金", "新股"],
+      "market": "china",
+      "language": "zh-CN",
+      "update_frequency": "hourly",
+      "enabled": false,
+      "free": true,
+      "description": "中国最大的财经门户网站"
+    },
+    
+    {
+      "id": "cn_securities",
+      "name": "中国证券报",
+      "name_en": "China Securities Journal",
+      "type": "rss",
+      "url": "http://www.cs.com.cn/",
+      "rss_url": "http://www.cs.com.cn/xwzx/index.xml",
+      "priority": "medium",
+      "categories": ["A股", "政策", "监管"],
+      "market": "china",
+      "language": "zh-CN",
+      "update_frequency": "daily",
+      "enabled": false,
+      "free": true,
+      "description": "中国证监会指定信息披露报纸"
+    },
+    
+    {
+      "id": "securities_times",
+      "name": "证券时报",
+      "name_en": "Securities Times",
+      "type": "web",
+      "url": "http://www.stcn.com/",
+      "priority": "medium",
+      "categories": ["A股", "公司", "数据"],
+      "market": "china",
+      "language": "zh-CN",
+      "update_frequency": "daily",
+      "enabled": false,
+      "free": true,
+      "description": "深交所信息披露报纸"
+    },
+    
+    {
+      "id": "coindesk",
+      "name": "CoinDesk",
+      "type": "rss",
+      "url": "https://www.coindesk.com/",
+      "rss_url": "https://www.coindesk.com/arc/outboundfeeds/rss/",
+      "priority": "high",
+      "categories": ["加密货币", "区块链"],
+      "market": "crypto",
+      "language": "en",
+      "update_frequency": "realtime",
+      "enabled": true,
+      "free": true,
+      "description": "最权威的加密货币新闻网站"
+    },
+    
+    {
+      "id": "cointelegraph",
+      "name": "Cointelegraph",
+      "type": "rss",
+      "url": "https://cointelegraph.com/",
+      "rss_url": "https://cointelegraph.com/rss",
+      "priority": "medium",
+      "categories": ["加密货币", "DeFi", "NFT"],
+      "market": "crypto",
+      "language": "en",
+      "update_frequency": "realtime",
+      "enabled": true,
+      "free": true,
+      "description": "加密货币社区新闻"
+    },
+    
+    {
+      "id": "the_block",
+      "name": "The Block",
+      "type": "rss",
+      "url": "https://www.theblock.co/",
+      "rss_url": "https://www.theblock.co/rss.xml",
+      "priority": "high",
+      "categories": ["加密货币", "机构", "监管"],
+      "market": "crypto",
+      "language": "en",
+      "update_frequency": "hourly",
+      "enabled": false,
+      "free": true,
+      "description": "机构级加密货币研究"
+    },
+    
+    {
+      "id": "bloomberg",
+      "name": "Bloomberg",
+      "type": "api",
+      "url": "https://www.bloomberg.com/",
+      "api_url": "https://www.bloomberg.com/feed/",
+      "priority": "high",
+      "categories": ["市场", "宏观", "公司"],
+      "market": "global",
+      "language": "en",
+      "update_frequency": "realtime",
+      "enabled": false,
+      "free": false,
+      "requires_subscription": true,
+      "description": "全球最权威的金融新闻"
+    },
+    
+    {
+      "id": "reuters",
+      "name": "Reuters",
+      "type": "rss",
+      "url": "https://www.reuters.com/",
+      "rss_url": "https://www.reutersagency.com/feed/?taxonomy=best-sectors&post_type=best",
+      "priority": "high",
+      "categories": ["市场", "突发", "国际"],
+      "market": "global",
+      "language": "en",
+      "update_frequency": "realtime",
+      "enabled": false,
+      "free": true,
+      "description": "路透社金融新闻"
+    },
+    
+    {
+      "id": "ft",
+      "name": "Financial Times",
+      "name_cn": "金融时报",
+      "type": "rss",
+      "url": "https://www.ft.com/",
+      "rss_url": "https://www.ft.com/markets?format=rss",
+      "priority": "high",
+      "categories": ["市场", "分析", "评论"],
+      "market": "global",
+      "language": "en",
+      "update_frequency": "hourly",
+      "enabled": false,
+      "free": false,
+      "requires_subscription": true,
+      "description": "英国金融时报"
+    },
+    
+    {
+      "id": "wsj",
+      "name": "Wall Street Journal",
+      "name_cn": "华尔街日报",
+      "type": "rss",
+      "url": "https://www.wsj.com/",
+      "rss_url": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
+      "priority": "high",
+      "categories": ["美股", "财报", "深度"],
+      "market": "us",
+      "language": "en",
+      "update_frequency": "hourly",
+      "enabled": false,
+      "free": false,
+      "requires_subscription": true,
+      "description": "华尔街日报市场版"
+    },
+    
+    {
+      "id": "cnbc",
+      "name": "CNBC",
+      "type": "rss",
+      "url": "https://www.cnbc.com/",
+      "rss_url": "https://www.cnbc.com/id/10000664/device/rss/rss.html",
+      "priority": "medium",
+      "categories": ["美股", "实时", "视频"],
+      "market": "us",
+      "language": "en",
+      "update_frequency": "realtime",
+      "enabled": false,
+      "free": true,
+      "description": "CNBC 财经新闻"
+    },
+    
+    {
+      "id": "seeking_alpha",
+      "name": "Seeking Alpha",
+      "type": "web",
+      "url": "https://seekingalpha.com/",
+      "priority": "medium",
+      "categories": ["美股", "分析", "观点"],
+      "market": "us",
+      "language": "en",
+      "update_frequency": "realtime",
+      "enabled": false,
+      "free": true,
+      "requires_scraping": true,
+      "description": "投资者社区与分析"
+    },
+    
+    {
+      "id": "benzinga",
+      "name": "Benzinga",
+      "type": "rss",
+      "url": "https://www.benzinga.com/",
+      "rss_url": "https://www.benzinga.com/feed",
+      "priority": "medium",
+      "categories": ["美股", "交易", "期权"],
+      "market": "us",
+      "language": "en",
+      "update_frequency": "realtime",
+      "enabled": false,
+      "free": true,
+      "description": "交易者新闻"
+    },
+    
+    {
+      "id": "finviz",
+      "name": "Finviz",
+      "type": "web",
+      "url": "https://finviz.com/news.ashx",
+      "priority": "medium",
+      "categories": ["美股", "热点", "筛选"],
+      "market": "us",
+      "language": "en",
+      "update_frequency": "realtime",
+      "enabled": false,
+      "free": true,
+      "requires_scraping": true,
+      "description": "股票筛选与新闻"
+    },
+    
+    {
+      "id": "yahoo_finance",
+      "name": "Yahoo Finance",
+      "type": "rss",
+      "url": "https://finance.yahoo.com/",
+      "rss_url": "https://finance.yahoo.com/news/rssindex",
+      "priority": "medium",
+      "categories": ["美股", "财报", "数据"],
+      "market": "us",
+      "language": "en",
+      "update_frequency": "hourly",
+      "enabled": false,
+      "free": true,
+      "description": "雅虎财经新闻"
+    },
+    
+    {
+      "id": "hkex_news",
+      "name": "港交所披露易",
+      "name_en": "HKEXnews",
+      "type": "web",
+      "url": "https://www.hkexnews.hk/",
+      "priority": "medium",
+      "categories": ["港股", "公告", "财报"],
+      "market": "hk",
+      "language": "zh-CN",
+      "update_frequency": "realtime",
+      "enabled": false,
+      "free": true,
+      "requires_scraping": true,
+      "description": "港交所官方公告"
+    },
+    
+    {
+      "id": "36kr",
+      "name": "36氪",
+      "name_en": "36Kr",
+      "type": "rss",
+      "url": "https://36kr.com/",
+      "rss_url": "https://36kr.com/feed",
+      "priority": "low",
+      "categories": ["科技", "创业", "投资"],
+      "market": "china",
+      "language": "zh-CN",
+      "update_frequency": "hourly",
+      "enabled": false,
+      "free": true,
+      "description": "中国科技创业资讯"
+    }
+  ],
+  
+  "user_preferences": {
+    "enabled_sources": [
+      "financial_express",
+      "coindesk",
+      "cointelegraph"
+    ],
+    "priority_categories": [
+      "实时快讯",
+      "加密货币",
+      "A股",
+      "美股"
+    ],
+    "language_preference": "zh-CN",
+    "max_sources": 5,
+    "note": "用户可以在这里配置启用哪些新闻源"
+  },
+  
+  "filters": {
+    "keywords": {
+      "include": [
+        "AI", "人工智能", "芯片", "半导体",
+        "新能源", "电动车", "锂电池",
+        "比特币", "以太坊", "加密货币",
+        "美联储", "央行", "加息", "降息"
+      ],
+      "exclude": [
+        "广告", "推广", "软文", "赞助",
+        "Advertisement", "Sponsored"
+      ]
+    },
+    "min_importance": 5,
+    "max_age_hours": 24
+  }
+}
